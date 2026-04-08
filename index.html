@@ -1,81 +1,734 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!--
+    ============================================================
+    NovaByte Studio — Sitio Web de Presentación
+    Agencia Digital Simulada
+    Taller de Plataformas Web — Semana 3
+    ============================================================
+    Estructura: HTML5 semántico
+    Estilos: styles.css (CSS3 + variables + flexbox + grid)
+    Dinámica: script.js (JavaScript ES6+)
+    ============================================================
+  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NovaByte Studio — Agencia digital especializada en diseño web, desarrollo de aplicaciones y estrategia digital." />
   <title>NovaByte Studio — Agencia Digital</title>
+
+  <!-- Google Fonts: Playfair Display + DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Hoja de estilos principal -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- =====================================================
+       ENCABEZADO / NAVEGACIÓN PRINCIPAL
+  ====================================================== -->
   <header class="header" id="header" role="banner">
     <div class="container nav-container">
+      <!-- Logo de la agencia -->
       <a href="#inicio" class="logo" aria-label="NovaByte Studio - Inicio">
         <span class="logo-icon">NB</span>
         <span class="logo-text">NovaByte<em>Studio</em></span>
       </a>
-      <nav class="nav" role="navigation" aria-label="Menú principal">
+
+      <!-- Botón hamburguesa para móvil (activado por JS) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Menú de navegación -->
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Menú principal">
         <ul class="nav-list">
           <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+          <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+          <li><a href="#roles" class="nav-link">Roles</a></li>
           <li><a href="#contacto" class="nav-link nav-cta">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- =====================================================
+       SECCIÓN HERO — Presentación principal
+  ====================================================== -->
   <section class="hero" id="inicio" aria-label="Presentación principal">
+    <!-- Fondo decorativo animado (CSS puro) -->
     <div class="hero-bg" aria-hidden="true">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
       <div class="grid-overlay"></div>
     </div>
+
     <div class="container hero-content">
-      <div class="hero-badge reveal"><span class="badge-dot"></span>Disponible para nuevos proyectos</div>
-      <h1 class="hero-title reveal">Diseñamos experiencias<br /><span class="gradient-text">digitales extraordinarias</span></h1>
-      <p class="hero-subtitle reveal">NovaByte Studio transforma ideas en productos digitales de alto impacto mediante diseño estratégico, desarrollo robusto y una ejecución web ordenada.</p>
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Disponible para nuevos proyectos
+      </div>
+      <h1 class="hero-title reveal">
+        Diseñamos experiencias<br />
+        <span class="gradient-text">digitales extraordinarias</span>
+      </h1>
+      <p class="hero-subtitle reveal">
+        En NovaByte Studio transformamos ideas en productos digitales de alto impacto. 
+        Combinamos diseño estratégico, desarrollo robusto y tecnología de vanguardia 
+        para construir la presencia digital que tu marca merece.
+      </p>
       <div class="hero-actions reveal">
-        <a href="#servicios" class="btn btn-primary">Explorar servicios</a>
-        <a href="#contacto" class="btn btn-ghost">Contactar</a>
+        <a href="#portafolio" class="btn btn-primary">Ver el portafolio</a>
+        <a href="#contacto" class="btn btn-ghost">Iniciar un proyecto</a>
       </div>
+
+      <!-- Métricas animadas (JavaScript) -->
       <div class="hero-stats reveal">
-        <div class="stat-item"><span class="stat-number">3</span><span class="stat-plus">+</span><span class="stat-label">Áreas de servicio</span></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="120">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Proyectos entregados</span>
+        </div>
         <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item"><span class="stat-number">1</span><span class="stat-plus">x</span><span class="stat-label">Proyecto integrador</span></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span><span class="stat-plus">%</span>
+          <span class="stat-label">Clientes satisfechos</span>
+        </div>
         <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item"><span class="stat-number">100</span><span class="stat-plus">%</span><span class="stat-label">Código propio</span></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Años de experiencia</span>
+        </div>
       </div>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-dot"></div>
     </div>
   </section>
 
+  <!-- =====================================================
+       SECCIÓN SERVICIOS
+  ====================================================== -->
   <section class="services" id="servicios" aria-label="Nuestros servicios">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">Lo que hacemos</span>
         <h2 class="section-title">Servicios diseñados para<br /><span class="gradient-text">impulsar tu negocio</span></h2>
-        <p class="section-desc">Se construyó una base visual profesional con componentes reutilizables, tarjetas informativas y una jerarquía clara de contenido.</p>
+        <p class="section-desc">
+          Cada proyecto es único. Ofrecemos soluciones digitales personalizadas que 
+          se adaptan a los objetivos y necesidades específicas de cada cliente.
+        </p>
       </div>
+
+      <!-- Grilla de servicios -->
       <div class="services-grid">
-        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Diseño Web UI/UX</h3><p class="service-desc">Arquitectura visual, identidad y experiencia de usuario.</p><span class="service-tag">Figma · Wireframing · Prototipado</span></article>
-        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Desarrollo Frontend</h3><p class="service-desc">HTML semántico, CSS responsive y JavaScript modular.</p><span class="service-tag">HTML · CSS · JavaScript</span></article>
-        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Estrategia Digital</h3><p class="service-desc">Definición de objetivos, métricas y presencia digital.</p><span class="service-tag">SEO · Analytics · CRO</span></article>
+
+        <!-- Servicio 1 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="8" width="40" height="28" rx="3" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M16 44h16M24 36v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M14 20l5 5 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Diseño Web UI/UX</h3>
+          <p class="service-desc">
+            Creamos interfaces intuitivas, accesibles y estéticamente refinadas 
+            que convierten visitantes en clientes. Cada píxel cuenta.
+          </p>
+          <span class="service-tag">Figma · Wireframing · Prototipado</span>
+        </article>
+
+        <!-- Servicio 2 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 32l-8-8 8-8M32 16l8 8-8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 38l4-28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Desarrollo Frontend</h3>
+          <p class="service-desc">
+            Sitios web modernos, rápidos y completamente responsivos. Construidos 
+            con HTML semántico, CSS avanzado y JavaScript optimizado.
+          </p>
+          <span class="service-tag">HTML · CSS · JavaScript · React</span>
+        </article>
+
+        <!-- Servicio 3 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M8 24h32M24 8c-4 4-6 10-6 16s2 12 6 16M24 8c4 4 6 10 6 16s-2 12-6 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Aplicaciones Web</h3>
+          <p class="service-desc">
+            Plataformas web a medida con backend robusto, bases de datos escalables 
+            y arquitecturas orientadas al rendimiento y la seguridad.
+          </p>
+          <span class="service-tag">PHP · Node.js · MySQL · APIs REST</span>
+        </article>
+
+        <!-- Servicio 4 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 36l6-6 4 4 8-10 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="4" y="8" width="40" height="32" rx="3" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Estrategia Digital</h3>
+          <p class="service-desc">
+            Analizamos tu mercado, definimos métricas clave y construimos 
+            una estrategia digital sólida que genera resultados medibles.
+          </p>
+          <span class="service-tag">SEO · Analytics · CRO · Auditorías</span>
+        </article>
+
+        <!-- Servicio 5 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="12" width="24" height="28" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="20" y="8" width="24" height="28" rx="2" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M28 20h8M28 26h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Branding Digital</h3>
+          <p class="service-desc">
+            Construimos identidades de marca coherentes, memorables y adaptadas 
+            al entorno digital. Desde el logotipo hasta el manual de marca.
+          </p>
+          <span class="service-tag">Identidad · Tipografía · Paleta · Guía</span>
+        </article>
+
+        <!-- Servicio 6 -->
+        <article class="service-card reveal" tabindex="0">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 4l6 12 13 2-9.5 9 2.5 13L24 34l-12 6 2.5-13L5 18l13-2z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Mantenimiento &amp; Soporte</h3>
+          <p class="service-desc">
+            Planes de mantenimiento continuo, actualizaciones de seguridad y 
+            soporte técnico dedicado para que tu sitio siempre funcione de manera óptima.
+          </p>
+          <span class="service-tag">Hosting · Seguridad · Backups · SLA</span>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contacto" aria-label="Sección de contacto">
+  <!-- =====================================================
+       SECCIÓN PORTAFOLIO — Con filtro dinámico (JavaScript)
+       Esta es la sección dinámica principal del proyecto.
+  ====================================================== -->
+  <section class="portfolio" id="portafolio" aria-label="Portafolio de proyectos">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Siguiente etapa</span>
-        <h2 class="section-title">Formulario y módulos dinámicos<br /><span class="gradient-text">en desarrollo</span></h2>
-        <p class="section-desc">La siguiente iteración incorporará portafolio filtrable, roles asumidos, formulario validado y mejoras de accesibilidad.</p>
+        <span class="section-tag">Portafolio</span>
+        <h2 class="section-title">Proyectos que hablan<br /><span class="gradient-text">por sí mismos</span></h2>
+        <p class="section-desc">
+          Una selección de nuestros proyectos más representativos. 
+          Filtra por categoría para encontrar lo que más te interesa.
+        </p>
+      </div>
+
+      <!--
+        FILTRO DINÁMICO — Implementado con JavaScript
+        El evento 'click' en cada botón activa la función filterProjects()
+        que muestra/oculta tarjetas según el atributo data-category
+      -->
+      <div class="portfolio-filters reveal" role="group" aria-label="Filtrar proyectos por categoría">
+        <button class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Sitios Web</button>
+        <button class="filter-btn" data-filter="app" aria-pressed="false">Aplicaciones</button>
+        <button class="filter-btn" data-filter="branding" aria-pressed="false">Branding</button>
+        <button class="filter-btn" data-filter="ecommerce" aria-pressed="false">E-commerce</button>
+      </div>
+
+      <!-- Grilla de proyectos (filtrada dinámicamente por JS) -->
+      <div class="portfolio-grid" id="portfolioGrid" aria-live="polite" aria-label="Proyectos">
+
+        <article class="portfolio-card reveal" data-category="web" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 220;" aria-hidden="true">
+              <span>LexCorp</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Sitio Web</span>
+              <h3 class="portfolio-title">LexCorp Legal Group</h3>
+              <p class="portfolio-detail">Rediseño completo del sitio corporativo para un estudio jurídico líder en Santiago.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="app" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 160;" aria-hidden="true">
+              <span>MediApp</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Aplicación Web</span>
+              <h3 class="portfolio-title">MediApp Clínicas</h3>
+              <p class="portfolio-detail">Sistema de agendamiento médico en línea con panel administrativo y notificaciones.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="ecommerce" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 30;" aria-hidden="true">
+              <span>Artesana</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">E-commerce</span>
+              <h3 class="portfolio-title">Artesana Store</h3>
+              <p class="portfolio-detail">Tienda online de artesanía chilena con pasarela de pago y gestión de inventario.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="branding" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 300;" aria-hidden="true">
+              <span>Luxe Co.</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Branding</span>
+              <h3 class="portfolio-title">Luxe Co. Identidad</h3>
+              <p class="portfolio-detail">Construcción de identidad visual premium para marca de accesorios de lujo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="web" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 190;" aria-hidden="true">
+              <span>EduViva</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Sitio Web</span>
+              <h3 class="portfolio-title">EduViva Plataforma</h3>
+              <p class="portfolio-detail">Portal educativo con catálogo de cursos y sistema de seguimiento de progreso.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal" data-category="app" tabindex="0">
+          <div class="portfolio-img">
+            <div class="portfolio-placeholder" style="--hue: 260;" aria-hidden="true">
+              <span>FinTrack</span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-category">Aplicación Web</span>
+              <h3 class="portfolio-title">FinTrack Dashboard</h3>
+              <p class="portfolio-detail">Panel financiero con visualización de datos en tiempo real e informes exportables.</p>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
+  <!-- =====================================================
+       SECCIÓN NOSOTROS
+  ====================================================== -->
+  <section class="about" id="nosotros" aria-label="Acerca de NovaByte Studio">
+    <div class="container about-grid">
+      <div class="about-content reveal">
+        <span class="section-tag">Sobre el estudio</span>
+        <h2 class="section-title">Más que una agencia,<br /><span class="gradient-text">soy tu socio digital</span></h2>
+        <p class="about-text">
+          NovaByte Studio es un estudio digital unipersonal orientado al diseño web, 
+          desarrollo frontend y estrategia digital. El proyecto fue concebido para 
+          demostrar que una sola persona puede levantar una presencia web sólida, 
+          bien estructurada y técnicamente cuidada.
+        </p>
+        <p class="about-text">
+          Trabajo con una metodología ordenada: análisis del requerimiento, definición 
+          visual, desarrollo iterativo, pruebas y documentación técnica. Cada sección 
+          del sitio fue construida desde cero, priorizando semántica, accesibilidad, 
+          rendimiento y claridad en el código.
+        </p>
+
+        <ul class="about-values" aria-label="Valores de la agencia">
+          <li class="about-value">
+            <div class="value-dot" aria-hidden="true"></div>
+            <span><strong>Transparencia total</strong> — Sabes exactamente en qué etapa está tu proyecto.</span>
+          </li>
+          <li class="about-value">
+            <div class="value-dot" aria-hidden="true"></div>
+            <span><strong>Calidad sin concesiones</strong> — Cada entrega pasa por revisión técnica exhaustiva.</span>
+          </li>
+          <li class="about-value">
+            <div class="value-dot" aria-hidden="true"></div>
+            <span><strong>Innovación continua</strong> — Nos actualizamos constantemente para ofrecerte lo mejor.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel de tecnologías -->
+      <div class="about-visual reveal" aria-label="Tecnologías que usamos">
+        <div class="tech-panel">
+          <h3 class="tech-panel-title">Stack tecnológico</h3>
+          <div class="tech-grid" role="list">
+            <div class="tech-badge" role="listitem">HTML5</div>
+            <div class="tech-badge" role="listitem">CSS3</div>
+            <div class="tech-badge" role="listitem">JavaScript</div>
+            <div class="tech-badge" role="listitem">PHP 8</div>
+            <div class="tech-badge" role="listitem">React</div>
+            <div class="tech-badge" role="listitem">Node.js</div>
+            <div class="tech-badge" role="listitem">MySQL</div>
+            <div class="tech-badge" role="listitem">Git</div>
+            <div class="tech-badge" role="listitem">Docker</div>
+            <div class="tech-badge" role="listitem">Figma</div>
+            <div class="tech-badge" role="listitem">WordPress</div>
+            <div class="tech-badge" role="listitem">Linux</div>
+          </div>
+
+          <!-- Proceso de trabajo -->
+          <h3 class="tech-panel-title" style="margin-top: 2rem;">Proceso de trabajo</h3>
+          <ol class="process-list" aria-label="Etapas del proceso de trabajo">
+            <li class="process-step">
+              <span class="step-num">01</span>
+              <span class="step-text">Análisis y estrategia</span>
+            </li>
+            <li class="process-step">
+              <span class="step-num">02</span>
+              <span class="step-text">Diseño y prototipado</span>
+            </li>
+            <li class="process-step">
+              <span class="step-num">03</span>
+              <span class="step-text">Desarrollo e integración</span>
+            </li>
+            <li class="process-step">
+              <span class="step-num">04</span>
+              <span class="step-text">Pruebas y despliegue</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SECCIÓN EQUIPO
+  ====================================================== -->
+  <section class="team" id="roles" aria-label="Roles asumidos en NovaByte Studio">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Rol individual</span>
+        <h2 class="section-title">Un solo profesional,<br /><span class="gradient-text">tres frentes clave</span></h2>
+        <p class="section-desc">
+          Para esta entrega, todas las funciones del proyecto fueron asumidas por una sola persona: diseño, desarrollo y documentación.
+        </p>
+      </div>
+
+      <div class="team-grid">
+
+        <article class="team-card reveal" tabindex="0">
+          <div class="team-avatar" aria-hidden="true" style="--avatar-hue: 220;">
+            <span>UX</span>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Diseño visual y experiencia de usuario</h3>
+            <span class="team-role">Arquitectura de información · UI · identidad visual</span>
+            <p class="team-bio">
+              Definición de la estética general del sitio, jerarquía visual, distribución de secciones, selección tipográfica y construcción del sistema visual basado en variables CSS.
+            </p>
+            <div class="team-skills" aria-label="Áreas abordadas">
+              <span>Figma</span><span>Wireframes</span><span>UI/UX</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="team-card reveal" tabindex="0">
+          <div class="team-avatar" aria-hidden="true" style="--avatar-hue: 160;">
+            <span>DEV</span>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Desarrollo front-end y lógica dinámica</h3>
+            <span class="team-role">HTML5 semántico · CSS3 responsive · JavaScript modular</span>
+            <p class="team-bio">
+              Implementación completa del sitio de una sola página, menú móvil, animaciones de entrada, filtro dinámico del portafolio, contadores y validación del formulario de contacto.
+            </p>
+            <div class="team-skills" aria-label="Tecnologías utilizadas">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="team-card reveal" tabindex="0">
+          <div class="team-avatar" aria-hidden="true" style="--avatar-hue: 340;">
+            <span>DOC</span>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Documentación, pruebas y control de versiones</h3>
+            <span class="team-role">Git · QA visual · informe técnico</span>
+            <p class="team-bio">
+              Registro del avance mediante commits descriptivos, pruebas de estructura y validación del código, levantamiento de evidencias y elaboración completa del informe técnico en formato Word.
+            </p>
+            <div class="team-skills" aria-label="Tareas de cierre">
+              <span>Git</span><span>Testing</span><span>Word</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SECCIÓN CONTACTO — Formulario con validación JS
+       Esta sección implementa la funcionalidad dinámica
+       principal: validación completa de formulario con JS.
+  ====================================================== -->
+  <section class="contact" id="contacto" aria-label="Sección de contacto">
+    <div class="container contact-grid">
+
+      <!-- Información de contacto -->
+      <div class="contact-info reveal">
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">¿Tienes un proyecto<br /><span class="gradient-text">en mente?</span></h2>
+        <p class="contact-desc">
+          Cuéntame tu idea. Revisaré personalmente tu mensaje y te responderé 
+          dentro de las próximas 24 horas hábiles con una propuesta inicial.
+        </p>
+
+        <ul class="contact-details" aria-label="Datos de contacto">
+          <li class="contact-detail">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8l9 6 9-6M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>hola@novabytestudio.cl</span>
+          </li>
+          <li class="contact-detail">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <span>Providencia, Santiago de Chile</span>
+          </li>
+          <li class="contact-detail">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <span>+56 2 2345 6789</span>
+          </li>
+        </ul>
+      </div>
+
+      <!--
+        FORMULARIO DE CONTACTO
+        Validación realizada enteramente con JavaScript (script.js)
+        Incluye: validación en tiempo real, mensajes de error,
+        manejo de envío y retroalimentación visual al usuario.
+      -->
+      <div class="contact-form-wrapper reveal">
+        <form class="contact-form" id="contactForm" novalidate aria-label="Formulario de contacto">
+
+          <!-- Fila: nombre + empresa -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" class="form-label">Nombre completo <span class="required" aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-input"
+                placeholder="Ej: Juan Pérez"
+                autocomplete="name"
+                aria-required="true"
+                aria-describedby="nombre-error"
+                required
+              />
+              <span class="form-error" id="nombre-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="empresa" class="form-label">Empresa (opcional)</label>
+              <input
+                type="text"
+                id="empresa"
+                name="empresa"
+                class="form-input"
+                placeholder="Ej: Mi Empresa Ltda."
+                autocomplete="organization"
+              />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email" class="form-label">Correo electrónico <span class="required" aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="correo@ejemplo.com"
+              autocomplete="email"
+              aria-required="true"
+              aria-describedby="email-error"
+              required
+            />
+            <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Servicio de interés -->
+          <div class="form-group">
+            <label for="servicio" class="form-label">Servicio de interés <span class="required" aria-hidden="true">*</span></label>
+            <select id="servicio" name="servicio" class="form-input form-select" aria-required="true" aria-describedby="servicio-error" required>
+              <option value="">— Selecciona una opción —</option>
+              <option value="diseno-web">Diseño Web UI/UX</option>
+              <option value="desarrollo-frontend">Desarrollo Frontend</option>
+              <option value="aplicacion-web">Aplicación Web</option>
+              <option value="estrategia-digital">Estrategia Digital</option>
+              <option value="branding">Branding Digital</option>
+              <option value="mantenimiento">Mantenimiento y Soporte</option>
+              <option value="otro">Otro / No estoy seguro/a</option>
+            </select>
+            <span class="form-error" id="servicio-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Presupuesto -->
+          <div class="form-group">
+            <label for="presupuesto" class="form-label">Presupuesto estimado</label>
+            <select id="presupuesto" name="presupuesto" class="form-input form-select">
+              <option value="">— Selecciona un rango —</option>
+              <option value="menos-500k">Menos de $500.000 CLP</option>
+              <option value="500k-1m">$500.000 – $1.000.000 CLP</option>
+              <option value="1m-3m">$1.000.000 – $3.000.000 CLP</option>
+              <option value="mas-3m">Más de $3.000.000 CLP</option>
+              <option value="conversarlo">Prefiero conversarlo</option>
+            </select>
+          </div>
+
+          <!-- Mensaje -->
+          <div class="form-group">
+            <label for="mensaje" class="form-label">Cuéntanos tu proyecto <span class="required" aria-hidden="true">*</span></label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              class="form-input form-textarea"
+              placeholder="Describe brevemente tu proyecto, sus objetivos y cualquier detalle relevante..."
+              rows="5"
+              aria-required="true"
+              aria-describedby="mensaje-error"
+              minlength="20"
+              maxlength="500"
+              required
+            ></textarea>
+            <span class="form-error" id="mensaje-error" role="alert" aria-live="polite"></span>
+            <!-- Contador de caracteres (actualizado por JS) -->
+            <span class="char-counter" id="charCounter" aria-live="polite">0 / 500 caracteres</span>
+          </div>
+
+          <!-- Términos y condiciones -->
+          <div class="form-group form-checkbox-group">
+            <label class="form-checkbox-label" for="terminos">
+              <input
+                type="checkbox"
+                id="terminos"
+                name="terminos"
+                class="form-checkbox"
+                aria-required="true"
+                aria-describedby="terminos-error"
+              />
+              <span class="checkbox-custom" aria-hidden="true"></span>
+              Acepto la <a href="#" class="form-link">política de privacidad</a> y el tratamiento de mis datos personales.
+            </label>
+            <span class="form-error" id="terminos-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <!-- Botón de envío -->
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn" aria-label="Enviar formulario de contacto">
+            <span class="btn-text">Enviar mensaje</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+
+          <!-- Mensaje de éxito (mostrado por JS tras el envío) -->
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <strong>¡Mensaje enviado con éxito!</strong>
+            <p>Gracias por contactarme. Te responderé en menos de 24 horas hábiles.</p>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PIE DE PÁGINA
+  ====================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo" aria-label="NovaByte Studio - Inicio">
+          <span class="logo-icon">NB</span>
+          <span class="logo-text">NovaByte<em>Studio</em></span>
+        </a>
+        <p class="footer-tagline">
+          Transformamos ideas en experiencias digitales extraordinarias. 
+          Desde Santiago para el mundo.
+        </p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <h4 class="footer-nav-title">Navegación</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#roles">Roles</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact" aria-label="Contacto en el pie de página">
+        <h4 class="footer-nav-title">Contacto</h4>
+        <p>hola@novabytestudio.cl</p>
+        <p>+56 2 2345 6789</p>
+        <p>Providencia, Santiago, Chile</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">
+          &copy; 2025 NovaByte Studio. Todos los derechos reservados.
+          Construido con <span aria-label="amor">&#9829;</span> usando HTML, CSS y JavaScript.
+        </p>
+        <button class="back-to-top" id="backToTop" aria-label="Volver al inicio de la página">
+          ↑ Volver arriba
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script principal (cargado al final para mejor rendimiento) -->
   <script src="script.js"></script>
 </body>
 </html>
