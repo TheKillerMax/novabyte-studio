@@ -1,14 +1,11 @@
-# NovaByte Studio - Entrega individual final
-
-Este paquete incluye la entrega final en modalidad individual para la Actividad Practica Sumativa - Semana 3 de CIB302.
+# NovaByte Studio
 
 ## Contenido
 - `index.html`: estructura semantica del sitio.
 - `styles.css`: sistema visual, layout responsive y componentes.
 - `script.js`: interactividad, filtros, validacion del formulario y accesibilidad.
-- `Informe_SitioWeb_Individual.docx`: informe tecnico final en formato Word.
+- `Informe_SitioWeb.docx`: informe en formato Word.
 - `evidencias/`: capturas del sitio y evidencia visual del historial Git.
-- `.git/`: repositorio local con historial de commits del desarrollo.
 
 ## Nota de adaptacion
 La pauta original esta redactada para trabajo grupal. En esta version se adaptaron los apartados de roles y responsabilidades para una ejecucion individual, manteniendo intactos los requisitos tecnicos del sitio y de la documentacion.
