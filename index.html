@@ -3,51 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NovaByte Studio - sitio web de presentación de agencia digital." />
-  <title>NovaByte Studio</title>
+  <meta name="description" content="NovaByte Studio — Agencia digital especializada en diseño web, desarrollo de aplicaciones y estrategia digital." />
+  <title>NovaByte Studio — Agencia Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header" id="header">
+  <header class="header" id="header" role="banner">
     <div class="container nav-container">
-      <a href="#inicio" class="logo">NovaByte Studio</a>
-      <nav class="nav" aria-label="Menú principal">
+      <a href="#inicio" class="logo" aria-label="NovaByte Studio - Inicio">
+        <span class="logo-icon">NB</span>
+        <span class="logo-text">NovaByte<em>Studio</em></span>
+      </a>
+      <nav class="nav" role="navigation" aria-label="Menú principal">
         <ul class="nav-list">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#contacto" class="nav-link nav-cta">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="container">
-        <p class="badge">Disponible para nuevos proyectos</p>
-        <h1>Diseñamos experiencias digitales extraordinarias</h1>
-        <p>Sitio base del proyecto NovaByte Studio para la actividad de Taller de Plataformas Web.</p>
+  <section class="hero" id="inicio" aria-label="Presentación principal">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge reveal"><span class="badge-dot"></span>Disponible para nuevos proyectos</div>
+      <h1 class="hero-title reveal">Diseñamos experiencias<br /><span class="gradient-text">digitales extraordinarias</span></h1>
+      <p class="hero-subtitle reveal">NovaByte Studio transforma ideas en productos digitales de alto impacto mediante diseño estratégico, desarrollo robusto y una ejecución web ordenada.</p>
+      <div class="hero-actions reveal">
+        <a href="#servicios" class="btn btn-primary">Explorar servicios</a>
+        <a href="#contacto" class="btn btn-ghost">Contactar</a>
       </div>
-    </section>
+      <div class="hero-stats reveal">
+        <div class="stat-item"><span class="stat-number">3</span><span class="stat-plus">+</span><span class="stat-label">Áreas de servicio</span></div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item"><span class="stat-number">1</span><span class="stat-plus">x</span><span class="stat-label">Proyecto integrador</span></div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item"><span class="stat-number">100</span><span class="stat-plus">%</span><span class="stat-label">Código propio</span></div>
+      </div>
+    </div>
+  </section>
 
-    <section class="services" id="servicios">
-      <div class="container">
-        <h2>Servicios</h2>
-        <div class="services-grid">
-          <article class="service-card"><h3>Diseño web</h3><p>Interfaz y experiencia de usuario.</p></article>
-          <article class="service-card"><h3>Desarrollo frontend</h3><p>Implementación HTML, CSS y JavaScript.</p></article>
-          <article class="service-card"><h3>Estrategia digital</h3><p>Definición de objetivos y presencia online.</p></article>
-        </div>
+  <section class="services" id="servicios" aria-label="Nuestros servicios">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Lo que hacemos</span>
+        <h2 class="section-title">Servicios diseñados para<br /><span class="gradient-text">impulsar tu negocio</span></h2>
+        <p class="section-desc">Se construyó una base visual profesional con componentes reutilizables, tarjetas informativas y una jerarquía clara de contenido.</p>
       </div>
-    </section>
+      <div class="services-grid">
+        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Diseño Web UI/UX</h3><p class="service-desc">Arquitectura visual, identidad y experiencia de usuario.</p><span class="service-tag">Figma · Wireframing · Prototipado</span></article>
+        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Desarrollo Frontend</h3><p class="service-desc">HTML semántico, CSS responsive y JavaScript modular.</p><span class="service-tag">HTML · CSS · JavaScript</span></article>
+        <article class="service-card reveal" tabindex="0"><h3 class="service-title">Estrategia Digital</h3><p class="service-desc">Definición de objetivos, métricas y presencia digital.</p><span class="service-tag">SEO · Analytics · CRO</span></article>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact" id="contacto">
-      <div class="container">
-        <h2>Contacto</h2>
-        <p>Formulario en construcción.</p>
+  <section class="contact" id="contacto" aria-label="Sección de contacto">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Siguiente etapa</span>
+        <h2 class="section-title">Formulario y módulos dinámicos<br /><span class="gradient-text">en desarrollo</span></h2>
+        <p class="section-desc">La siguiente iteración incorporará portafolio filtrable, roles asumidos, formulario validado y mejoras de accesibilidad.</p>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
